@@ -190,7 +190,7 @@ class MySQLMigration(object):
             cursor.execute("SHOW TABLES LIKE '" + table_name +"';")
         self._connection.commit()
         for row in cursor:
-            return table_name in row.values()
+            return table_name in list(row.values())
 
     def _connect(self):
         """Connect to Database"""
